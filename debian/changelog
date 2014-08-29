@@ -1,3 +1,29 @@
+libonig (5.9.5-2) unstable; urgency=medium
+
+  * rename debian/*.doc-base
+  * add html files to doc
+  * change debian/rules for hardening
+  * remove Multi-Arch from libonig-dev (Closes: #747897)
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Tue, 13 May 2014 10:25:38 +0200
+
+libonig (5.9.5-1) unstable; urgency=medium
+
+  * remove *.so.* files from libonig2-dbg
+    (same files as in libonig2)
+  * add debian/libonig-dev.doc-base
+  * add debian/symbols
+  * rewrite debian/copyright
+  * rewrite debian/rules (Closes: #645940)
+  * patch buildsystem (Closes: #734683)
+  * change lib version to 2.1.0
+  * Bump compat to 9
+  * Update to upstream version 5.9.5 (Closes: #661616)
+  * Bump Standarts to 3.9.5
+  * New Maintainer (Closes: #747187)
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Wed, 07 May 2014 16:39:54 +0200
+
 libonig (5.9.1-1) unstable; urgency=low
 
   [ Max Kellermann ]

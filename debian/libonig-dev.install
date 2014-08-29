@@ -1,4 +1,4 @@
 usr/bin/*-config
-usr/lib/lib*.so
-usr/lib/lib*.a
+usr/lib/*/lib*.so
 usr/include
+usr/lib/*/pkgconfig/*
