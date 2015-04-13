@@ -1,3 +1,26 @@
+libonig (5.9.5-3.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix version for calls to dpkg-maintscript-helper symlink_to_dir.
+    (closes: #769556).
+
+ -- Ivo De Decker <ivodd@debian.org>  Sun, 28 Dec 2014 12:11:12 +0100
+
+libonig (5.9.5-3.1) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * Add missing pre-dependency on dpkg for dpkg-maintscript-helper
+    symlink_to_dir (closes: #769556).
+
+ -- Julien Cristau <jcristau@debian.org>  Sat, 15 Nov 2014 11:53:45 +0100
+
+libonig (5.9.5-3) unstable; urgency=medium
+
+  * Add debian/libonig2-dbg.(preinst|postinst|postrm) to prevent
+    error on upgrade wheezy to jessie. (Closes: #768267)
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Thu, 06 Nov 2014 21:32:20 +0100
+
 libonig (5.9.5-2) unstable; urgency=medium
 
   * rename debian/*.doc-base
