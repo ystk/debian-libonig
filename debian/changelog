@@ -1,3 +1,15 @@
+libonig (5.9.5-3.2+deb8u1) jessie; urgency=medium
+
+  * New debian/patches/0500-CVE-2017-922[4-9].patch:
+    - Cherrypicked from upstream to correct:
+      + CVE-2017-9224 (Closes: #863312)
+      + CVE-2017-9226 (Closes: #863314)
+      + CVE-2017-9227 (Closes: #863315)
+      + CVE-2017-9228 (Closes: #863316)
+      + CVE-2017-9229 (Closes: #863318)
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Sun, 02 Jul 2017 14:28:34 +0200
+
 libonig (5.9.5-3.2) unstable; urgency=medium
 
   * Non-maintainer upload.
