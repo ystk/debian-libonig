@@ -1,3 +1,15 @@
+libonig (5.9.5-3.2+deb8u2) jessie-security; urgency=high
+
+  * Non-maintainer upload by the LTS team.
+  * Fix CVE-2019-13224:
+    A use-after-free in onig_new_deluxe() in regext.c allows
+    attackers to potentially cause information disclosure, denial of service,
+    or possibly code execution by providing a crafted regular expression. The
+    attacker provides a pair of a regex pattern and a string, with a multi-byte
+    encoding that gets handled by onig_new_deluxe().
+
+ -- Markus Koschany <apo@debian.org>  Wed, 17 Jul 2019 14:56:48 +0200
+
 libonig (5.9.5-3.2+deb8u1) jessie; urgency=medium
 
   * New debian/patches/0500-CVE-2017-922[4-9].patch:
