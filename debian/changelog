@@ -1,3 +1,13 @@
+libonig (5.9.5-3.2+deb8u3) jessie-security; urgency=high
+
+  * Non-maintainer upload by the LTS team.
+  * Backport recursion monitoring (with a fixed limit to avoid
+    changing the API; higher limit exhausts the default stack size)
+  * Fix CVE-2019-16163: Oniguruma before 6.9.3 allows Stack Exhaustion
+    in regcomp.c because of recursion in regparse.c.
+
+ -- Sylvain Beucler <beuc@debian.org>  Wed, 11 Sep 2019 15:30:09 +0200
+
 libonig (5.9.5-3.2+deb8u2) jessie-security; urgency=high
 
   * Non-maintainer upload by the LTS team.
