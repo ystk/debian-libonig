@@ -1,3 +1,20 @@
+libonig (5.9.5-3.2+deb8u4) jessie-security; urgency=high
+
+  * Non-maintainer upload by the LTS team.
+  * CVE-2019-19012: an integer overflow in the search_in_range
+    function in regexec.c leads to an out-of-bounds read, in which the
+    offset of this read is under the control of an attacker. (This
+    only affects the 32-bit compiled version). Remote attackers can
+    cause a denial-of-service or information disclosure, or possibly
+    have unspecified other impact, via a crafted regular expression.
+  * CVE-2019-19204: in the function fetch_range_quantifier in
+    regparse.c, PFETCH is called without checking PEND. This leads to
+    a heap-based buffer over-read
+  * CVE-2019-19246: heap-based buffer over-read in
+    str_lower_case_match in regexec.c.
+
+ -- Sylvain Beucler <beuc@debian.org>  Tue, 03 Dec 2019 18:38:09 +0100
+
 libonig (5.9.5-3.2+deb8u3) jessie-security; urgency=high
 
   * Non-maintainer upload by the LTS team.
