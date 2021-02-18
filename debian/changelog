@@ -1,3 +1,11 @@
+libonig (5.9.5-3.2+deb8u5) jessie-security; urgency=high
+
+  * Non-maintainer upload by the ELTS team.
+  * Add patch to fix out-of-bounds write. (Fixes: CVE-2020-26159)
+  * Add patch to fix resource leak and other errors.
+
+ -- Utkarsh Gupta <utkarsh@debian.org>  Fri, 02 Oct 2020 16:42:31 +0530
+
 libonig (5.9.5-3.2+deb8u4) jessie-security; urgency=high
 
   * Non-maintainer upload by the LTS team.

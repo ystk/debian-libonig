@@ -1,0 +1,63 @@
+Description: Fix resource leaks and other errors.
+ cf: https://github.com/kkos/oniguruma/issues/207
+Author: K.Kosako <kkosako0@gmail.com>
+
+--- a/regparse.c
++++ b/regparse.c
+@@ -118,7 +118,11 @@
+   *rto = to = (BBuf* )xmalloc(sizeof(BBuf));
+   CHECK_NULL_RETURN_MEMERR(to);
+   r = BBUF_INIT(to, from->alloc);
+-  if (r != 0) return r;
++  if (r != 0) {
++    bbuf_free(to);
++    *rto = 0;
++    return r;
++  }
+   to->used = from->used;
+   xmemcpy(to->p, from->p, from->used);
+   return 0;
+@@ -1809,13 +1813,17 @@
+     to   = data[i*2+1];
+     if (pre <= from - 1) {
+       r = add_code_range_to_buf(pbuf, pre, from - 1);
+-      if (r != 0) return r;
++      if (r != 0) {
++        bbuf_free(*pbuf);
++        return r;
++      }
+     }
+     if (to == ~((OnigCodePoint )0)) break;
+     pre = to + 1;
+   }
+   if (to < ~((OnigCodePoint )0)) {
+     r = add_code_range_to_buf(pbuf, to + 1, ~((OnigCodePoint )0));
++    if (r != 0) bbuf_free(*pbuf);
+   }
+   return r;
+ }
+--- a/st.c
++++ b/st.c
+@@ -153,6 +153,7 @@
+ #endif
+ 
+     size = new_size(size);	/* round up to prime number */
++    if (size <= 0) return 0;
+ 
+     tbl = alloc(st_table);
+     tbl->type = type;
+@@ -315,10 +316,12 @@
+     register st_table *table;
+ {
+     register st_table_entry *ptr, *next, **new_bins;
+-    int i, old_num_bins = table->num_bins, new_num_bins;
++    int i, new_num_bins, old_num_bins;
+     unsigned int hash_val;
+ 
+-    new_num_bins = new_size(old_num_bins+1);
++    old_num_bins = table->num_bins;
++    new_num_bins = new_size(old_num_bins + 1);
++    if (new_num_bins <= 0) return ;
+     new_bins = (st_table_entry**)Calloc(new_num_bins, sizeof(st_table_entry*));
+ 
+     for(i = 0; i < old_num_bins; i++) {
