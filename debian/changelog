@@ -1,3 +1,12 @@
+libonig (5.9.5-3.2+deb8u6) jessie-security; urgency=medium
+
+  * Non-maintainer upload by the ELTS team.
+  * Revert: Add patch to fix out-of-bounds write.
+    CVE-2020-26159 was determined to not be a vulnerability and was rejected.
+    The fix was also reverted upstream.
+
+ -- Roberto C. Sánchez <roberto@debian.org>  Fri, 27 Aug 2021 17:01:15 -0400
+
 libonig (5.9.5-3.2+deb8u5) jessie-security; urgency=high
 
   * Non-maintainer upload by the ELTS team.
